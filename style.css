@@ -1,0 +1,831 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* --- Global Theme & Color Variables --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+    /* Safely accounts for your fixed navbar height so it doesn't cover the contact title when scrolling down */
+    scroll-padding-top: 100px; 
+}
+
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+
+    /* ADD BACKGROUND IMAGE WITH DARK TINT OVERLAY */
+    background-image: linear-gradient(rgba(11, 15, 25, 0.85), rgba(11, 15, 25, 0.9)), 
+                      url('images/bluebg.png');
+    
+    /* BACKGROUND IMAGE CONTROLS */
+    background-size: cover;       /* Stretches the image to fill the entire screen */
+    background-position: center;   /* Centers the image perfectly */
+    background-repeat: no-repeat;  /* Prevents the image from tiling/repeating */
+    background-attachment: fixed;  /* Keeps image locked in place while scrolling */
+}
+
+.hero {
+  /* Combine the silver gradient overlay AND your background image together */
+  background: linear-gradient(
+    120deg, 
+    rgba(224, 224, 224, 0.2) 30%, 
+    rgba(245, 245, 245, 0.4) 40%, 
+    rgba(255, 255, 255, 0.7) 50%, 
+    rgba(245, 245, 245, 0.4) 60%, 
+    rgba(224, 224, 224, 0.2) 70%
+  ), url('images/bluebg.png'); /* Replace with your actual image path */
+
+  /* Ensure the background image covers the area properly */
+  background-size: 400% 100%, cover;
+  background-position: 100% 50%, center;
+  background-repeat: no-repeat;
+  
+  /* Run the shimmer animation infinitely */
+  animation: silverShimmer 6s ease-in-out infinite;
+}
+
+/* Animate only the gradient positions while keeping the image steady */
+@keyframes silverShimmer {
+  0% {
+    background-position: 100% 50%, center;
+  }
+  50% {
+    background-position: 0% 50%, center;
+  }
+  100% {
+    background-position: 100% 50%, center;
+  }
+}
+
+/* --- Fixed Top Left Navbar --- */
+.navbar {
+    position: fixed;   /* Keeps the navbar locked in place while scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;       /* Spans across the screen width */
+    padding: 15px 30px;
+    z-index: 1000;     /* Ensures it floats safely above all pricing cards and background images */
+    
+    /* Premium dark translucent glass look */
+    background: rgba(11, 15, 25, 0.75); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.15); /* Subtle blue boundary line */
+}
+
+/* Flex Container to align image and text horizontally */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;         /* Exact spacing between logo image and text */
+    width: max-content;
+}
+
+/* Responsive Logo Image Metrics */
+.nav-logo {
+    height: 80px;      /* Professional desktop constraint size */
+    width: auto;
+    object-fit:contain;
+}
+
+/* Optional Accompanying Logo Text Style */
+.brand-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+/* Removes default link styling from the logo wrapper */
+.logo-link {
+    text-decoration: none;
+    color: inherit; /* Inherits the crisp white color from parent elements */
+    display: inline-block;
+}
+
+/* Optional: Adds a subtle, professional brightness effect when a user hovers over the logo link */
+.logo-link:hover {
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+}
+
+/* --- Hero Header Block --- */
+.hero {
+    text-align: center;
+    
+    /* CRITICAL FIX: Increased top padding pushes your text out from behind the fixed navbar */
+    padding: 160px 20px 60px 20px; 
+    
+    background: linear-gradient(135deg, #0b0f19 0%, #1e293b 100%);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+/* --- Premium Contact Card Section Layout --- */
+.contact-section {
+    width: 100%;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+/* --- 1. Service Cards Hover Glow --- */
+.card {
+  /* Smooth transition for when the mouse leaves the card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Optional: lifts the card slightly */
+  box-shadow: 
+    0 0 15px rgba(255, 255, 255, 0.6), 
+    0 0 30px rgba(255, 255, 255, 0.4), 
+    0 0 45px rgba(255, 255, 255, 0.2);
+}
+
+/* --- 3. Contact Section Card Hover Glow --- */
+.contact-card {
+  transition: box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  box-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.7), 
+    0 0 40px rgba(255, 255, 255, 0.5), 
+    0 0 60px rgba(255, 255, 255, 0.3);
+}
+
+/* Base Card Container */
+.contact-card {
+    background-color: #ffffff; /* High contrast white base card background */
+    color: #1e293b;            /* Dark slate interior body typography */
+    max-width: 550px;
+    width: 100%;
+    border-radius: 16px;
+    padding: 40px 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border: 2px solid transparent;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Subtle Hover Interactive Glow */
+.contact-card:hover {
+    transform: translateY(-5px);
+    border-color: #3b82f6; /* Accent blue edge lighting */
+}
+
+/* Card Section Header */
+.contact-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.contact-header i {
+    font-size: 2.5rem;
+    color: #2563eb; /* Primary theme functional blue */
+    margin-bottom: 12px;
+}
+
+.contact-header h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0f172a; /* Midnight black slate header */
+}
+
+.contact-header p {
+    font-size: 0.95rem;
+    color: #64748b; /* Cool grey descriptor layout text */
+    margin-top: 8px;
+}
+
+/* Contact Rows List Stack */
+.contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Individual Interactive Target Row Link */
+.contact-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    border-radius: 12px;
+    background-color: #f8fafc; /* Crisp, clean off-white field fill */
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid #e2e8f0;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-row:hover {
+    background-color: #f1f5f9;
+    transform: translateX(4px); /* Premium horizontal sliding offset click cue */
+}
+
+/* Floating Action Circle Box Setup */
+.icon-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    color: #ffffff; /* Clean white symbols contrast */
+    flex-shrink: 0;
+}
+
+/* Custom Thematic Color Tones For The Icon Circles */
+.phone-bg { background-color: #2563eb; }    /* Theme Primary Blue */
+.whatsapp-bg { background-color: #128c7e; } /* Standard Safe Brand WhatsApp Green */
+.email-bg { background-color: #3b82f6; }    /* Light Accent Theme Blue */
+
+/* Text Content Fields */
+.contact-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-details span {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #64748b;
+}
+
+.contact-details strong {
+    font-size: 1.1rem;
+    color: #0f172a;
+    margin-top: 2px;
+    word-break: break-all; /* Safeguards long text emails on small displays */
+}
+
+/* --- CONTACT MOBILE VIEWS --- */
+@media (max-width: 480px) {
+    .contact-card {
+        padding: 30px 20px;
+    }
+    .contact-row {
+        gap: 15px;
+        padding: 12px;
+    }
+    .icon-box {
+        width: 42px;
+        height: 42px;
+        font-size: 1.1rem;
+    }
+    .contact-details strong {
+        font-size: 0.95rem;
+    }
+}
+
+/* --- MOBILE COMPATIBILITY ADJUSTMENT --- */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 12px 15px; 
+    }
+    .nav-logo {
+        height: 32px;       
+    }
+    .brand-name {
+        font-size: 1.1rem;
+    }
+    
+    /* FIX FOR MOBILE: Pushes mobile hero content down nicely */
+    .hero {
+        padding-top: 140px; 
+        padding-bottom: 40px;
+    }
+}
+/* --- Hero Header Block --- */
+.hero h1 {
+    font-size: 3rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    
+    /* ADDED: Multi-layered white neon text glow effect */
+    text-shadow: 
+        0 0 5px rgba(255, 255, 255, 0.8),
+        0 0 15px rgba(255, 255, 255, 0.6),
+        0 0 30px rgba(255, 255, 255, 0.4),
+        0 0 50px rgba(59, 130, 246, 0.3); /* Subtle outer hint of theme blue */
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    color: #3b82f6; /* Bright vibrant accent blue */
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    color: #94a3b8; /* Clean slate-gray text */
+    margin-top: 15px;
+}
+
+/* --- Pricing Cards Layout Grid --- */
+.pricing {
+    display: grid;
+    
+    /* UPDATED: Forces exactly 4 equal columns on desktop screens */
+    grid-template-columns: repeat(4, 1fr); 
+    
+    gap: 20px; /* Slightly reduced gap so 4 cards sit comfortably next to each other */
+    width: 95%; /* Expanded width for more workspace horizontal breathing room */
+    max-width: 1400px; /* Boosted max-width constraint to prevent squishing text lines */
+    margin: 5px auto 60px auto;
+    padding: 20px 0;
+}
+
+/* --- MOBILE RESPONSIVE ADAPTATIONS --- */
+@media (max-width: 1200px) {
+    .pricing {
+        grid-template-columns: repeat(2, 1fr); /* Automatically drops to 2x2 rows on smaller tablets */
+    }
+}
+
+@media (max-width: 680px) {
+    .pricing {
+        grid-template-columns: 1fr; /* Stacks vertically down to 1 single column on smart mobile phones */
+    }
+}
+
+/* --- Premium Pricing Card Module --- */
+.card {
+    background-color: #ffffff; /* Contrast white body background */
+    color: #1e293b;            /* Dark slate body text */
+    border-radius: 16px;
+    padding: 35px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border: 2px solid transparent;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Elegant Desktop Card Interactive Hover Glow */
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #3b82f6; /* Accent blue outline on hover */
+}
+
+/* Header Text Inside Cards */
+.card-title {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.card-title i {
+    font-size: 2rem;
+    color: #2563eb; /* Deep functional brand blue */
+    margin-bottom: 10px;
+}
+
+.card-title h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #0f172a; /* Deep black-slate headings */
+}
+
+/* Big Numerical Price Values */
+.price {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #2563eb;
+    margin-bottom: 25px;
+}
+
+/* Feature Unordered Lists */
+.card ul {
+    list-style: none;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.card ul li {
+    padding: 10px 0;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #f1f5f9;
+    text-align: center;
+    color: #475569;
+}
+
+/* Icon Bullets (Optional Add-on Concept) */
+.card ul li::before {
+    content: "✓ ";
+    color: #3b82f6;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+/* --- Call To Action Buttons --- */
+.btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: #2563eb; /* Primary action blue background */
+    color: #ffffff;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px;
+    margin-top: auto; /* Snaps the button cleanly to the card base floor */
+    transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #1d4ed8; /* Darker navy-blue shift on hover actions */
+}
+/* Gallery Container Layout */
+.gallery-section {
+  padding: 60px 20px;
+  background-color: #071b46;
+  text-align: center;
+}
+.gallery-title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: white;
+  text-transform: uppercase;
+    letter-spacing: 2px;
+    
+    /* ADDED: Multi-layered white neon text glow effect */
+    text-shadow: 
+        0 0 5px rgba(255, 255, 255, 0.8),
+        0 0 15px rgba(255, 255, 255, 0.6),
+        0 0 30px rgba(255, 255, 255, 0.4),
+        0 0 50px rgba(59, 130, 246, 0.3); /* Subtle outer hint of theme blue */
+}
+.gallery-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+/* Viewport Window Mask */
+.gallery-slider-wrapper {
+  overflow: hidden;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 
+    0 0 15px rgba(255, 255, 255, 0.6), 
+    0 0 30px rgba(255, 255, 255, 0.4);
+
+  transition: box-shadow 0.3s ease;
+}
+/* Inner Sliding Track Grid */
+.gallery-track {
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+/* Ensure the outer slide wrapper remains responsive */
+.gallery-slide {
+  min-width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Force the image to maintain a perfect square shape */
+.gallery-slide img {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Forces height to exactly equal width */
+  max-height: 600px;   /* Prevents the square from expanding too large on huge monitors */
+  object-fit: cover;   /* Crops your images nicely so they do not stretch out of shape */
+  display: block;
+}
+.slide-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Translucent dark tint */
+  color: #fff;
+  padding: 12px;
+  box-sizing: border-box;
+}
+/* Arrow Button Positioning & Design */
+.gallery-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  transition: background-color 0.3s, color 0.3s;
+}
+.gallery-btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+.prev-btn { left: -25px; }
+.next-btn { right: -25px; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .gallery-slide img { height: 300px; }
+  .prev-btn { left: 5px; }
+  .next-btn { right: 5px; }
+}
+/* --- 2. Gallery Slide Hover Glow --- */
+/* Note: Ensure overflow on .gallery-slider-wrapper doesn't clip this. 
+/* --- Clean Centered Footer Wrapper --- */
+footer {
+    background-color: #020617; /* Deep midnight-black anchor base line */
+    color: #64748b;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: auto;
+    font-size: 1rem;
+    border-top: 1px solid rgba(59, 130, 246, 0.1);
+    line-height: 1.6;
+}
+
+
+.btn{
+
+display:block;
+
+text-align:center;
+
+margin-top:25px;
+
+padding:15px;
+
+background:goldenrod;
+
+color:black;
+
+text-decoration:none;
+
+font-weight:bold;
+
+border-radius:8px;
+
+transition:.3s;
+
+}
+
+.btn:hover{
+
+background:white;
+
+}
+
+.terms{
+
+padding:70px 10%;
+
+background:#111;
+
+}
+
+.terms h2{
+
+text-align:center;
+
+color:goldenrod;
+
+font-size:40px;
+
+margin-bottom:40px;
+
+}
+
+.term{
+
+display:flex;
+
+align-items:center;
+
+gap:20px;
+
+margin:20px 0;
+
+font-size:20px;
+
+}
+
+.term i{
+
+font-size:35px;
+
+color:goldenrod;
+
+width:50px;
+
+}
+
+footer{
+
+padding:80px 20px;
+
+text-align:center;
+
+background:black;
+
+}
+
+footer h3{
+
+font-size:38px;
+
+margin-bottom:30px;
+
+color:white;
+
+}
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:40px;
+
+}
+
+.hero h2{
+
+font-size:30px;
+
+}
+
+.price{
+
+font-size:34px;
+
+}
+
+}
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;       /* Positions the button on the left side */
+  z-index: 999;     /* Keeps it above all other elements */
+  background-color: #333333; /* Dark color to match your styling */
+  color: #ffffff;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  
+  /* Hidden by default, fades in smoothly */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s, transform 0.2s;
+}
+
+/* Hover state styling */
+.back-to-top:hover {
+  background-color: #555555;
+  transform: scale(1.1); /* Slight pop effect when hovered */
+}
+
+/* Class added by JavaScript when user scrolls down */
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+/* Full-screen backdrop mask layer */
+.adv-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(5, 17, 34, 0.85); /* Deep dark blue-tinted overlay to match flyer */
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* Modal box configuration frame */
+.adv-content.image-only-content {
+  background-color: #ffffff;
+  padding: 12px;
+  border-radius: 16px;
+  
+  /* --- INCREASE THESE VARIABLES TO MAKE IT BIGGER --- */
+  max-width: 600px;  /* Increased from 440px to 580px for a much larger desktop view */
+  width: 100%;        /* Increased from 90% to 95% to maximize space on tablet screens */
+  
+  position: relative;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  transform: scale(0.8);
+  transition: transform 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Visibility transitions active trigger classes */
+.adv-modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+.adv-modal.show .adv-content {
+  transform: scale(1);
+}
+
+/* Flyer Image Mask Container */
+.adv-image-container {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+/* Ensure the image can comfortably scale into the new larger container size */
+.adv-popup-img {
+  width: 100%;
+  max-height: 80vh;  /* Restricts the image from getting taller than 80% of any screen height */
+  object-fit: contain; /* Keeps the flyer completely visible without cropping the edges */
+  display: block;
+}
+/* Action Row containing the CTA link button */
+.adv-action-row {
+  padding: 15px 0 5px 0;
+  text-align: center;
+}
+
+/* Premium Blue & Orange Claim Now Button Design */
+.adv-claim-btn {
+  display: inline-block;
+  background-color: #0b55a1; /* Royal blue matching the flyer header accents */
+  color: #ffffff;
+  width: 100%;
+  padding: 14px 0;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(11, 85, 161, 0.3);
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.adv-claim-btn:hover {
+  background-color: #f7a000; /* Switches to the flyer's golden-orange accent shade */
+  box-shadow: 0 6px 16px rgba(247, 160, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Floating White Cross "X" Button Styling */
+.image-only-content .adv-close-btn {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  font-size: 2.2rem;
+  background-color: #ffffff;
+  color: #0b55a1;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  line-height: 1;
+  z-index: 10001;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+.image-only-content .adv-close-btn:hover {
+  background-color: #2b33a5;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+/* Clean mobile screen scaling overrides */
+@media (max-width: 480px) {
+  .adv-content.image-only-content {
+    max-width: 340px;
+  }
+  .image-only-content .adv-close-btn {
+    top: -15px;
+    right: 5px; /* Moves inside slightly on tight viewport setups */
+  }
+}

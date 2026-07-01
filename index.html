@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Design Price List</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Advertising Popup Modal -->
+<div id="advModal" class="adv-modal">
+  <div class="adv-content image-only-content">
+    <!-- Close Button (Top Right Corner) -->
+    <button id="closeAdvBtn" class="adv-close-btn">&times;</button>
+    
+    <!-- Flyer Image Area -->
+    <div class="adv-image-container">
+      <!-- Make sure your flyer image is saved in your images folder under this exact name -->
+      <img src="images/flyer.png" alt="CampbellWeb Discount Flyer" class="adv-popup-img">
+    </div>
+    
+    <!-- Action Button directly underneath the flyer graphic -->
+    <div class="adv-action-row">
+      <a href="#contact-target" id="advCtaLink" class="adv-claim-btn">Claim Now</a>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar">
+    <!-- The anchor tag wraps both the logo image and the text name -->
+    <a href="index.html" class="logo-link">
+        <div class="logo-container">
+            <img src="images/logo.png" alt="CampbellWeb Logo" class="nav-logo">
+            <span class="brand-name">CampbellWeb</span>
+        </div>
+    </a>
+</nav>
+
+<header class="hero">
+    <h1>Website Design</h1>
+    <h2>Price List</h2>
+    <p>Professional Websites Designed For Your Business</p>
+</header>
+
+<!-- ADDED THE CRITICAL OPENING PRICING ROW TAG HERE -->
+<section class="pricing">
+
+    <!-- Card 1 -->
+    <div class="card">
+        <div class="card-title">
+            <i class="fa-solid fa-globe"></i>
+            <h3>Basic Single Page</h3>
+        </div>
+        <div class="price">R1,500</div>
+        <ul>
+            <li>1 Professionally Designed Page</li>
+            <li>Mobile Friendly Design</li>
+            <li>Contact Form</li>
+            <li>Social Media Links</li>
+            <li>Basic SEO</li>
+            <li>1-Year Domain Registration</li>
+            <li>1-Year Hosting</li>
+        </ul>
+        <a href="#contact-target" class="btn">Get Started</a>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+        <div class="card-title">
+            <i class="fa-solid fa-file"></i>
+            <h3>Basic Multi Page</h3>
+        </div>
+        <div class="price">R4,500</div>
+        <ul>
+            <li>Up To 5 Pages</li>
+            <li>Mobile Friendly</li>
+            <li>Contact Form</li>
+            <li>Social Media Integration</li>
+            <li>Basic SEO</li>
+            <li>1-Year Domain</li>
+            <li>1-Year Hosting</li>
+            <li>Additional Pages: R250 Each</li>
+        </ul>
+        <a href="#contact-target" class="btn">Get Started</a>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+        <div class="card-title">
+            <i class="fa-solid fa-rocket"></i>
+            <h3>Landing Page</h3>
+        </div>
+        <div class="price">R1,000</div>
+        <ul>
+            <li>Custom Landing Page</li>
+            <li>Mobile Friendly</li>
+            <li>Lead Capture Form</li>
+            <li>Call To Action Buttons</li>
+            <li>Basic SEO</li>
+            <li>1-Year Domain</li>
+            <li>1-Year Hosting</li>
+        </ul>
+        <a href="#contact-target" class="btn">Get Started</a>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card">
+        <div class="card-title">
+            <i class="fa-solid fa-id-card"></i>
+            <h3>Digital Business Card</h3>
+        </div>
+        <div class="price">R500</div>
+        <ul>
+            <li>1 Sleek Digital Card</li>
+            <li>Tap to Call & Email</li>
+            <li>Social Links Integration</li>
+            <li>QR Code Accessible</li>
+            <li>Fast Mobile Loading</li>
+            <li>1-Year Hosting</li>
+        </ul>
+        <a href="#contact-target" class="btn">Get Started</a>
+    </div>
+
+</section> <!-- This tag now closes the open section properly -->
+
+<section class="gallery-section">
+  <h2 class="gallery-title">Our Recent Projects</h2>
+  
+  <div class="gallery-container">
+    <!-- Navigation Buttons -->
+    <button class="gallery-btn prev-btn" id="prevBtn"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="gallery-btn next-btn" id="nextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+    
+    <!-- Outer Viewport Wrapper -->
+    <div class="gallery-slider-wrapper">
+      <!-- Inner Track holding all 10 pages -->
+      <div class="gallery-track" id="galleryTrack">
+        <!-- Page 1 -->
+        <div class="gallery-slide">
+          <img src="images/project1.png" alt="Project 1">
+          <div class="slide-caption"><h3>Project Page 1</h3></div>
+        </div>
+        <!-- Page 2 -->
+        <div class="gallery-slide">
+          <img src="images/project2.png" alt="Project 2">
+          <div class="slide-caption"><h3>Project Page 2</h3></div>
+        </div>
+        <!-- Page 3 -->
+        <div class="gallery-slide">
+          <img src="images/project3.png" alt="Project 3">
+          <div class="slide-caption"><h3>Project Page 3</h3></div>
+        </div>
+        <!-- Page 4 -->
+        <div class="gallery-slide">
+          <img src="images/project4.png" alt="Project 4">
+          <div class="slide-caption"><h3>Project Page 4</h3></div>
+        </div>
+        <!-- Page 5 -->
+        <div class="gallery-slide">
+          <img src="images/project5.png" alt="Project 5">
+          <div class="slide-caption"><h3>Project Page 5</h3></div>
+        </div>
+        <!-- Page 6 -->
+        <div class="gallery-slide">
+          <img src="images/project6.png" alt="Project 6">
+          <div class="slide-caption"><h3>Project Page 6</h3></div>
+        </div>
+        <!-- Page 7 -->
+        <div class="gallery-slide">
+          <img src="images/project7.jpg" alt="Project 7">
+          <div class="slide-caption"><h3>Project Page 7</h3></div>
+        </div>
+        <!-- Page 8 -->
+        <div class="gallery-slide">
+          <img src="images/project8.jpg" alt="Project 8">
+          <div class="slide-caption"><h3>Project Page 8</h3></div>
+        </div>
+        <!-- Page 9 -->
+        <div class="gallery-slide">
+          <img src="images/project9.jpg" alt="Project 9">
+          <div class="slide-caption"><h3>Project Page 9</h3></div>
+        </div>
+        <!-- Page 10 -->
+        <div class="gallery-slide">
+          <img src="images/project10.jpg" alt="Project 10">
+          <div class="slide-caption"><h3>Project Page 10</h3></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Check that it says id="contact-target" exactly, without a # inside the quotes -->
+<section class="contact-section" id="contact-target">
+
+    <div class="contact-card">
+        <div class="contact-header">
+            <i class="fa-solid fa-address-card"></i>
+            <h3>Get In Touch</h3>
+            <p>We would love to look over your next digital project layout.</p>
+        </div>
+        
+        <div class="contact-methods">
+            <!-- Cellphone Action Row -->
+            <a href="tel:+27606990845" class="contact-row">
+                <div class="icon-box phone-bg">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+                <div class="contact-details">
+                    <span>Call Us Directly</span>
+                    <strong>060 6990 845</strong>
+                </div>
+            </a>
+
+            <!-- WhatsApp Instant Chat Row -->
+            <a href="https://wa.me/27606990845" target="_blank" class="contact-row">
+                <div class="icon-box whatsapp-bg">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <div class="contact-details">
+                    <span>WhatsApp Instant Chat</span>
+                    <strong>Chat Live Now</strong>
+                </div>
+            </a>
+
+            <!-- Email Mailto Hub Row -->
+            <a href="mailto:infocampbellweb@gmail.com?subject=Website%20Design%20Inquiry" class="contact-row">
+                <div class="icon-box email-bg">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                    <span>Send An Email</span>
+                    <strong>infocampbellweb@gmail.com</strong>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<script>
+  // This wrapper guarantees the code waits until the buttons physically exist
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('galleryTrack');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    
+    let currentIndex = 0;
+    const totalSlides = 10;
+
+    function updateSlidePosition() {
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < totalSlides - 1) {
+        currentIndex++;
+      } else {
+        currentIndex = 0; 
+      }
+      updateSlidePosition();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+      } else {
+        currentIndex = totalSlides - 1; 
+      }
+      updateSlidePosition();
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const backToTopBtn = document.getElementById('backToTopBtn');
+
+    // Show the button when scrolling past 300px
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+
+    // Smoothly scroll back up to the top when clicked
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+  const advModal = document.getElementById('advModal');
+  const closeAdvBtn = document.getElementById('closeAdvBtn');
+  const advCtaLink = document.getElementById('advCtaLink');
+
+  // Launch popup visibility states
+  advModal.classList.add('show');
+
+  function closeAdvert() {
+    advModal.classList.remove('show');
+  }
+
+  // Bind close action elements
+  closeAdvBtn.addEventListener('click', closeAdvert);
+  advCtaLink.addEventListener('click', closeAdvert);
+
+  // Close modal if user clicks gray backdrop zone
+  window.addEventListener('click', (e) => {
+    if (e.target === advModal) {
+      closeAdvert();
+    }
+  });
+});
+
+ 
+</script>
+
+<footer>
+    <p>© Copyright 2026 CampbellWeb</p>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="backToTopBtn" class="back-to-top" title="Go to top">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+</body>
+</html>
