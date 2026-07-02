@@ -337,15 +337,14 @@ body {
 /* --- Pricing Cards Layout Grid --- */
 .pricing {
     display: grid;
-    
-    /* UPDATED: Forces exactly 4 equal columns on desktop screens */
-    grid-template-columns: repeat(4, 1fr); 
-    
-    gap: 20px; /* Slightly reduced gap so 4 cards sit comfortably next to each other */
-    width: 95%; /* Expanded width for more workspace horizontal breathing room */
-    max-width: 1400px; /* Boosted max-width constraint to prevent squishing text lines */
-    margin: 5px auto 60px auto;
-    padding: 20px 0;
+    /* Forces exactly 2 identical columns spanning equal screen spaces */
+    grid-template-columns: repeat(3, 1fr); 
+    /* Defines exactly 3 rows with heights tailored to content length */
+    grid-template-rows: repeat(3, auto); 
+    gap: 30px; /* Space between rows and columns */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
 }
 
 /* --- MOBILE RESPONSIVE ADAPTATIONS --- */
@@ -373,6 +372,9 @@ body {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     border: 2px solid transparent;
     transition: transform 0.3s ease, border-color 0.3s ease;
+    width: 100% !important; 
+    max-width: 100% !important;
+    margin: 0;
 }
 
 /* Elegant Desktop Card Interactive Hover Glow */
@@ -448,6 +450,103 @@ body {
 .btn:hover {
     background-color: #1d4ed8; /* Darker navy-blue shift on hover actions */
 }
+/* 1. Ensure the base layout switches smoothly when hovered */
+.payment-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+/* Payment Terms Styles */
+.payment-terms {
+    background-color: #fcfcfc; /* Adjust to match your website styling */
+    padding: 40px 20px;
+    border-top: 1px solid #eef2f5;
+    border-bottom: 1px solid #eef2f5;
+    color: #1e293b;            /* Dark slate body text */
+    border-radius: 16px;
+    padding: 35px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border: 2px solid transparent;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0;
+}
+.terms-container h3 {
+    font-size: 1.5rem;
+    color: #0b55a1; /* Matches your setup color theme */
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+/* Updated Payment Terms Grid for 4 Columns */
+.terms-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Reduced slightly to fit 4 items comfortably */
+    flex-wrap: wrap;
+      display: grid;
+    gap: 30px; /* Space between rows and columns */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.term-item {
+    flex: 1;
+    min-width: 230px; /* Lowered from 250px to prevent early breaking */
+    max-width: 260px; /* Lowered from 340px to neatly fit 4 columns on desktop */
+    background: #ffffff;
+    padding: 20px 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    text-align: left;
+}
+.payment-terms:hover {
+     transform: translateY(-8px);
+    border-color: #3b82f6; /* Accent blue outline on hover */
+    /* Mirroring your exact pricing card illumination values */
+    box-shadow: 
+        0 0 15px rgba(255, 255, 255, 0.6), 
+        0 0 30px rgba(255, 255, 255, 0.4), 
+        0 0 45px rgba(255, 255, 255, 0.2);
+}
+
+.term-item i {
+    font-size: 1.3rem;
+    color: #f7a000; 
+    margin-top: 3px;
+    flex-shrink: 0; /* Prevents the icon from squeezing on narrow widths */
+}
+.term-item p {
+    margin: 0;
+    font-size: 0.9rem; /* Dropped slightly to optimize space for text-heavy boxes */
+    color: #4a5568;
+    line-height: 1.5;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 1024px) {
+    .term-item {
+        max-width: 45%; /* Shifts to a clean 2x2 grid layout on tablets */
+    }
+}
+@media (max-width: 768px) {
+    .terms-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .term-item {
+        width: 100% !important;
+        max-width: 100%; /* Rows stretch to full-width on mobile */
+    }
+}
+
 /* Gallery Container Layout */
 .gallery-section {
   padding: 60px 20px;
