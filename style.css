@@ -116,16 +116,54 @@ body {
     transition: opacity 0.2s ease;
 }
 
-/* --- Hero Header Block --- */
+/* --- Optimized Hero Header Block --- */
 .hero {
     text-align: center;
     
     /* CRITICAL FIX: Increased top padding pushes your text out from behind the fixed navbar */
     padding: 160px 20px 60px 20px; 
     
-    background: linear-gradient(135deg, #0b0f19 0%, #1e293b 100%);
+    /* FIX 1: Combine a dark tint overlay, the silver shimmer animation, and the image together */
+    background: 
+      /* Dark Tint Layer to make white text highly visible */
+      linear-gradient(rgba(11, 15, 25, 0.65), rgba(11, 15, 25, 0.75)),
+      /* Silver Shimmer Layer (Opacity drastically reduced to 0.15 max so it doesn't wash out text) */
+      linear-gradient(120deg, 
+        rgba(224, 224, 224, 0) 30%, 
+        rgba(245, 245, 245, 0.05) 40%, 
+        rgba(255, 255, 255, 0.15) 50%, 
+        rgba(245, 245, 245, 0.05) 60%, 
+        rgba(224, 224, 224, 0) 70%
+      ), 
+      /* Your actual background image */
+      url('images/hero.png');
+
+    /* BACKGROUND CONTROLS FOR ALL LAYERS */
+    /* 1. Dark overlay (100% 100%), 2. Shimmer gradient (400% 100%), 3. Image (cover) */
+    background-size: 100% 100%, 400% 100%, cover;
+    /* 1. Dark overlay (center), 2. Shimmer start position (100% 50%), 3. Image (center) */
+    background-position: center, 100% 50%, center;
+    background-repeat: no-repeat;
     border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+    
+    /* Run the shimmer animation infinitely */
+    animation: silverShimmer 6s ease-in-out infinite;
 }
+ar-gradient(135deg, #0b0f19 0%, #1e293b 100%);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+/* Animate only the second layer (the shimmer) while keeping others steady */
+@keyframes silverShimmer {
+  0% {
+    background-position: center, 100% 50%, center;
+  }
+  50% {
+    background-position: center, 0% 50%, center;
+  }
+  100% {
+    background-position: center, 100% 50%, center;
+  }
+}
+
 
 /* --- Premium Contact Card Section Layout --- */
 .contact-section {
