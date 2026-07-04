@@ -966,3 +966,19 @@ font-size:34px;
     right: 5px; /* Moves inside slightly on tight viewport setups */
   }
 }
+.contact-section {
+    width: 100%;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column; /* Crucial for vertical stacking alignment */
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.custom-contact-header {
+ 
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white
+}
