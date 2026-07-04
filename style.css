@@ -63,6 +63,83 @@ body {
   }
 }
 
+  /* --- THREE HERO ACTION BUTTONS FLEX ROW --- */
+        .hero-action-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;                 /* Sets horizontal gap space between buttons */
+            margin-top: 35px;
+            width: 100%;
+            flex-wrap: wrap;           /* CRITICAL: Drops buttons into a column safely on mobile */
+        }
+
+        /* Standardised structural layout for all 3 hero buttons */
+        .hero-btn {
+            display: inline-block;
+            font-family: var(--text-font, 'Montserrat', sans-serif);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 16px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            border: 2px solid transparent;
+            min-width: 190px;          /* Forces identical sizing boundaries across buttons */
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        /* Button 1: Brand Blue Fill */
+        .btn-primary {
+            background-color: #0b55a1;
+            color: #ffffff;
+        }
+        .btn-primary:hover {
+            background-color: #083d75;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(11, 85, 161, 0.3);
+        }
+
+        /* Button 2: Accent Orange/Gold Fill */
+        .btn-secondary {
+            background-color: #f7a000;
+            color: #ffffff;
+        }
+        .btn-secondary:hover {
+            background-color: #d68a00;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(247, 160, 0, 0.3);
+        }
+
+        /* Button 3: Clean Transparent Outline Choice */
+        .btn-outline {
+            background-color: transparent;
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        .btn-outline:hover {
+            background-color: #ffffff;
+            color: #111111;
+            border-color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Viewport Adaptive Constraints */
+        @media (max-width: 640px) {
+            .hero-action-container {
+                flex-direction: column !important; /* Stacks links vertically on small mobile phone screens */
+                gap: 12px !important;
+                padding: 0 15px;
+            }
+            .hero-btn {
+                width: 100% !important;           /* Stretches button width to match mobile thumb targets */
+            }
+        }
+
+
 /* --- Fixed Top Left Navbar --- */
 .navbar {
     position: fixed;   /* Keeps the navbar locked in place while scrolling */
@@ -981,4 +1058,8 @@ font-size:34px;
     font-size: 1.8rem;
     font-weight: 700;
     color: white
+}
+      /* --- GLOBAL H3 CENTER ALIGNMENT --- */
+h1, h2, h3 {
+    text-align: center !important; /* Forces every h3 heading on the page to center horizontally */
 }
