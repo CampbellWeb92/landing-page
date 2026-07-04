@@ -1063,6 +1063,7 @@ font-size:34px;
 h1, h2, h3 {
     text-align: center !important; /* Forces every h3 heading on the page to center horizontally */
 }
+
 /* --- GLOBAL RESETS & MOBILE TOUCH SHIELDS --- */
         * { 
             box-sizing: border-box; 
