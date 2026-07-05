@@ -1,7 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const backToTopBtn = document.getElementById("backToTopBtn");
-
-    // Hide button instantly on layout initialization
+// Hide button instantly on layout initialization
     backToTopBtn.style.opacity = "0";
     backToTopBtn.style.pointerEvents = "none";
     backToTopBtn.style.transition = "opacity 0.3s ease";
@@ -15,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
             backToTopBtn.style.pointerEvents = "none";
         }
     });
-});
 const modal = document.getElementById("advModal");
 const closeBtn = document.getElementById("closeAdvBtn");
 
