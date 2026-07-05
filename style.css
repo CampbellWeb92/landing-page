@@ -166,11 +166,13 @@ section {
 
 /* Symmetrical Information Pricing Cards */
 .card {
+    width: 100%; /* Forces the card to scale to the grid column size */
+    padding: 25px 20px;
+    box-sizing: border-box;
     background-color: var(--light-white);
     border-top: 5px solid var(--primary-blue);
     border-radius: 8px;
-    padding: 30px;
-      box-shadow: 0 10px 30px rgb(250, 230, 117);
+    box-shadow: 0 10px 30px rgb(250, 230, 117);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -354,12 +356,51 @@ section {
     background-color: var(--accent-gold);
     margin: 10px auto 0;
 }
-
+.services-container {
+    display: grid;
+    /* Automatically creates columns that are at least 280px wide, breaking evenly */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px; /* Physical spacing between cards */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
 /* --- Uniform Service Grid Layout (Row of 3, 2 Columns) --- */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+}
+/* Container rules */
+.services-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows cards to wrap to the next line */
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Individual card rules for desktop */
+.service-card {
+    flex: 1 1 calc(33.333% - 20px); /* 3 Columns on desktop */
+    min-width: 280px; 
+    padding: 25px 20px;
+    box-sizing: border-box;
+}
+
+/* 📱 Mobile Specific Rules overrides */
+@media (max-width: 768px) {
+    .services-container {
+        padding: 15px; /* Shakes off extra whitespace edge padding */
+    }
+    
+    .service-card {
+        flex: 1 1 100%; /* Spans 100% total screen width on mobile */
+    }
 }
 
 /* All cards sharing uniform size constraints */
