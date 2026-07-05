@@ -12,6 +12,7 @@
             backToTopBtn.style.pointerEvents = "none";
         }
     });
+
 const modal = document.getElementById("advModal");
 const closeBtn = document.getElementById("closeAdvBtn");
 
