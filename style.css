@@ -773,8 +773,8 @@ header.theme-header {
 }
 
 .logo-img {
-    height: 50px;       /* Fixed professional profile scale */
-    width: auto;        /* Preserves accurate aspect ratio metrics */
+    height: 160px;       /* Fixed professional profile scale */
+    width: 160px;        /* Preserves accurate aspect ratio metrics */
     display: block;
     object-fit: contain;
     filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.4)); /* Subtle ambient gold logo outline flare */
