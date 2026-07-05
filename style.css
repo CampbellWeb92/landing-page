@@ -411,7 +411,7 @@ section {
 .hero {
        /* ... keep your existing styles ... */
     background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(17, 17, 17, 0.9)), 
-                url('hero.png') no-repeat fixed center center/cover;
+    url('hero.png') no-repeat fixed center center/cover;
     animation: zoomBackground 20s ease-in-out infinite alternate;
     position: relative;
     width: 100%;
