@@ -641,38 +641,7 @@
 });
 
 </script>
-<!-- 1. POPUP HTML -->
-<div id="welcome-popup" style="display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); align-items: center; justify-content: center;">
-  <div style="position: relative; background: #fff; padding: 10px; border-radius: 8px; max-width: 90%; width: 500px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-    
-    <!-- Close Button -->
-    <button onclick="closePopup()" style="position: absolute; top: -15px; right: -15px; background: #000; color: #fff; border: 2px solid #fff; border-radius: 50%; width: 32px; height: 32px; font-size: 20px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 0;">&times;</button>
-    
-    <!-- Image (Replace URL below) -->
-    <img src="hi.gif" alt="Popup" style="width: 100%; height: auto; display: block; border-radius: 4px;">
-    
-  </div>
 </div>
-
-<!-- 2. POPUP JAVASCRIPT -->
-<script>
-  // Safe load mechanism
-  if (document.readyState === "complete" || document.readyState === "interactive") {
-    showPopup();
-  } else {
-    document.addEventListener("DOMContentLoaded", showPopup);
-  }
-
-  function showPopup() {
-    const popup = document.getElementById("welcome-popup");
-    if (popup) popup.style.display = "flex";
-  }
-
-  function closePopup() {
-    const popup = document.getElementById("welcome-popup");
-    if (popup) popup.style.display = "none";
-  }
-</script>
 
 <!-- Your Footer -->
 <footer>
