@@ -409,6 +409,10 @@ section {
 
 /* --- LEGIBlLITY VISIBILITY HERO SYSTEM --- */
 .hero {
+       /* ... keep your existing styles ... */
+    background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(17, 17, 17, 0.9)), 
+                url('hero.png') no-repeat fixed center center/cover;
+    animation: zoomBackground 20s ease-in-out infinite alternate;
     position: relative;
     width: 100%;
     min-height: 70vh; /* Gives the background container actual physical height on screen */
@@ -419,19 +423,29 @@ section {
     text-align: center;
     padding: 80px 20px;
     box-sizing: border-box;
-
-    /* Combine overlay tint and image file path. 
-       Note: Update the folder path if your image is saved inside an "images" directory! */
     background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(17, 17, 17, 0.9)), 
                 url('hero.png') no-repeat center center/cover;
-    
     border-bottom: 3px solid var(--accent-gold);
+}
+@keyframes zoomBackground {
+    0% { background-size: 100% auto; }
+    100% { background-size: 110% auto; }
 }
 
  .hero h2{
-    color: gold !important;
+      color: gold !important;
+    animation: fadeInUp 1s ease-out forwards;
  }
-
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 /* --- Hero Action Button Container Alignment --- */
 .hero-action-container {
     display: flex;
@@ -461,6 +475,12 @@ section {
     background-color: var(--accent-gold);
     color: var(--dark-black);
     box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    animation: buttonPulse 2s infinite;
+}
+@keyframes buttonPulse {
+    0% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); }
+    50% { box-shadow: 0 0 25px rgba(212, 175, 55, 0.7); }
+    100% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); }
 }
 
 .hero-btn.btn-primary:hover {
@@ -492,7 +512,6 @@ section {
     color: var(--dark-black);
     box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
 }
-
 
 /* --- CARD COMPONENT STYLES --- */
 .price-tag {
