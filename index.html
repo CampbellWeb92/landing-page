@@ -48,6 +48,62 @@
       box-shadow: 0 0 24px rgba(212, 175, 55, 0.8);
     }
 
+
+    /* Silver shimmer effect for the hero content box */
+    .hero-content {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      border: 1px solid rgba(192, 192, 192, 0.65);
+      background: linear-gradient(135deg, rgba(10, 37, 64, 0.78), rgba(17, 17, 17, 0.82));
+      box-shadow: 0 0 24px rgba(192, 192, 192, 0.28), 0 0 38px rgba(212, 175, 55, 0.18);
+    }
+
+    .hero-content::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      z-index: -1;
+      border-radius: inherit;
+      background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.08) 28%,
+        rgba(230, 230, 230, 0.75) 45%,
+        rgba(255, 255, 255, 0.95) 50%,
+        rgba(230, 230, 230, 0.75) 55%,
+        rgba(255, 255, 255, 0.08) 72%,
+        transparent 100%
+      );
+      transform: translateX(-130%) skewX(-18deg);
+      animation: silverShimmer 4s ease-in-out infinite;
+      opacity: 0.75;
+      pointer-events: none;
+    }
+
+    .hero-content::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      border-radius: inherit;
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 35%);
+      pointer-events: none;
+    }
+
+    @keyframes silverShimmer {
+      0% { transform: translateX(-130%) skewX(-18deg); }
+      45%, 100% { transform: translateX(130%) skewX(-18deg); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-content::before {
+        animation: none;
+        opacity: 0.18;
+        transform: none;
+      }
+    }
+
     @media (max-width: 600px) {
       .back-to-top {
         right: 18px;
