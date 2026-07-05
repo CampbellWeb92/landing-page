@@ -908,3 +908,81 @@ footer span {
 .dot {
   pointer-events: auto;
 }
+/* ==========================================
+   MOBILE & TABLET RESPONSIVE FIXES
+   ========================================== */
+@media (max-width: 1024px) {
+  /* Fix the 3-column services grid layout */
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columns on tablets */
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Global spacing and layout normalization */
+  section {
+    padding: 50px 16px; /* Bring padding down from 80px */
+  }
+
+  /* Structural adjustment for Navigation */
+  .nav-container {
+    flex-direction: column; /* Stack logo and navigation links vertically */
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .logo-img {
+    width: 72px; /* Prevent large logo images from hogging viewport height */
+    height: 72px;
+  }
+
+  .nav-links {
+    width: 100%;
+    gap: 8px;
+  }
+
+  .nav-links a {
+    flex: 1 1 calc(50% - 8px); /* Make links uniform, clickable touch boxes */
+    text-align: center;
+    padding: 8px 12px;
+    font-size: 0.78rem;
+  }
+
+  /* Reset Hero layout boundaries */
+  .hero {
+    min-height: auto; /* Allow flexible wrapping container height */
+    padding: 60px 16px;
+  }
+
+  .hero-content {
+    padding: 24px 16px;
+    border-radius: 16px;
+  }
+
+  .hero-action-container {
+    flex-direction: column; /* Stack the main CTA buttons vertically */
+    width: 100%;
+    gap: 12px;
+  }
+
+  .btn, .hero-btn, .adv-claim-btn {
+    width: 100%; /* Give finger friendly widths to form elements */
+    min-height: 48px; /* Meet strict mobile hit-target standards */
+  }
+
+  /* Collapse Services Grid into an clean individual linear stack */
+  .services-grid {
+    grid-template-columns: 1fr; /* Pure single column display on screens under 768px */
+    gap: 24px;
+  }
+
+  .card {
+    padding: 24px 20px;
+  }
+
+  .card h3 {
+    min-height: auto; /* Remove structural grid heights that create uneven box gaps */
+    margin-bottom: 8px;
+  }
+}
