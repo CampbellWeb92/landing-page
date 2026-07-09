@@ -119,6 +119,7 @@ h2 {
   filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.55));
 }
 
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -932,11 +933,26 @@ footer span {
     padding: 16px;
   }
 
-  .logo-img {
-    width: 120px;
-    height: 120px;
-  }
+ .logo-img {
+  width: clamp(90px, 10vw, 150px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.55));
+}
 
+@media (max-width: 768px) {
+  .logo-img {
+    width: clamp(85px, 24vw, 120px);
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-img {
+    width: 90px;
+    height: auto;
+  }
+}
   .nav-links {
     width: 100%;
     gap: 8px;
