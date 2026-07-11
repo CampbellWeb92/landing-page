@@ -133,7 +133,7 @@
   <header class="theme-header">
     <nav class="nav-container" aria-label="Main navigation">
       <a href="#top" class="logo" aria-label="CampbellWeb home">
-        <img src="images/logo2.png" alt="CampbellWeb Logo" class="logo-img">
+        <img src="images/logo.png" alt="CampbellWeb Logo" class="logo-img">
       </a>
 
       <div class="nav-links">
@@ -370,15 +370,14 @@
           <div class="slide"><img src="images/project8.jpg" alt="Project 8"></div>
           <div class="slide"><img src="images/project9.jpg" alt="Project 9"></div>
           <div class="slide"><img src="images/project10.jpg" alt="Project 10"></div>
-          <div class="slide"><img src="images/project11.jpg" alt="Project 11"></div>
-          <div class="slide"><img src="images/project12.jpg" alt="Project 12"></div>
         </div>
-
-        <button class="nav-btn prev-btn" id="prevBtn" type="button" aria-label="Previous slide">&#10094;</button>
+   <button class="nav-btn prev-btn" id="prevBtn" type="button" aria-label="Previous slide">&#10094;</button>
         <button class="nav-btn next-btn" id="nextBtn" type="button" aria-label="Next slide">&#10095;</button>
         <div class="dots-container" id="dotsContainer" aria-label="Gallery slide dots"></div>
       </div>
     </section>
+
+   
 
     <section id="contact" class="contact-section">
       <div class="contact-card">
@@ -415,6 +414,22 @@
             </div>
             <i class="fa-solid fa-chevron-right arrow-icon"></i>
           </a>
+
+          <a href="https://www.instagram.com/YOUR_USERNAME/"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="contact-row">
+  <div class="icon-box instagram-bg">
+    <i class="fa-brands fa-instagram"></i>
+  </div>
+
+  <div class="contact-details">
+    <span>Follow Us on Instagram</span>
+    <strong>@campbellwebdev</strong>
+  </div>
+
+  <i class="fa-solid fa-chevron-right arrow-icon"></i>
+</a>
         </div>
       </div>
     </section>
@@ -426,116 +441,191 @@
 <a href="#" id="backToTop" class="back-to-top" aria-label="Back to top">↑</a>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const modal = document.getElementById("advModal");
-      const closeBtn = document.getElementById("closeAdvBtn");
-      const advCtaLink = document.getElementById("advCtaLink");
-      const logoLink = document.querySelector(".logo");
-      const backToTopBtn = document.getElementById("backToTop");
+document.addEventListener("DOMContentLoaded", () => {
+  /* =========================
+     ADVERT MODAL
+  ========================= */
 
-      if (modal) {
-        window.addEventListener("load", () => {
-          modal.classList.add("show");
-          modal.setAttribute("aria-hidden", "false");
-        });
-      }
+  const modal = document.getElementById("advModal");
+  const closeBtn = document.getElementById("closeAdvBtn");
+  const advCtaLink = document.getElementById("advCtaLink");
 
-      if (closeBtn && modal) {
-        closeBtn.addEventListener("click", () => {
-          modal.classList.remove("show");
-          modal.setAttribute("aria-hidden", "true");
-        });
-      }
+  if (modal) {
+    modal.classList.add("show");
+    modal.setAttribute("aria-hidden", "false");
+  }
 
-      if (advCtaLink && modal) {
-        advCtaLink.addEventListener("click", () => {
-          modal.classList.remove("show");
-          modal.setAttribute("aria-hidden", "true");
-        });
-      }
-
-   if (logoLink) {
-    logoLink.addEventListener("click", () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
+  if (closeBtn && modal) {
+    closeBtn.addEventListener("click", () => {
+      modal.classList.remove("show");
+      modal.setAttribute("aria-hidden", "true");
     });
-}
-      if (backToTopBtn) {
-        const toggleBackToTop = () => {
-          if (window.scrollY > 300) {
-            backToTopBtn.classList.add("show");
-          } else {
-            backToTopBtn.classList.remove("show");
-          }
-        };
+  }
 
-        window.addEventListener("scroll", toggleBackToTop);
-        toggleBackToTop();
+  if (advCtaLink && modal) {
+    advCtaLink.addEventListener("click", () => {
+      modal.classList.remove("show");
+      modal.setAttribute("aria-hidden", "true");
+    });
+  }
 
-        backToTopBtn.addEventListener("click", (e) => {
-          e.preventDefault();
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-      }
+  /* =========================
+     LOGO HOME LINK
+  ========================= */
 
-      const track = document.getElementById("sliderTrack");
-      const prevBtn = document.getElementById("prevBtn");
-      const nextBtn = document.getElementById("nextBtn");
-      const dotsContainer = document.getElementById("dotsContainer");
+  const logoLink = document.querySelector(".logo");
 
-      if (!track || !prevBtn || !nextBtn || !dotsContainer) return;
+  if (logoLink) {
+    logoLink.addEventListener("click", (event) => {
+      event.preventDefault();
 
-      const slides = Array.from(track.querySelectorAll(".slide"));
-      if (!slides.length) return;
-
-      let currentIndex = 0;
-      let autoSlideTimer;
-
-      const goToSlide = (index) => {
-        currentIndex = (index + slides.length) % slides.length;
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-        dotsContainer.querySelectorAll(".dot").forEach((dot, dotIndex) => {
-          dot.classList.toggle("active", dotIndex === currentIndex);
-        });
-      };
-
-      const startAutoSlide = () => {
-        clearInterval(autoSlideTimer);
-        autoSlideTimer = setInterval(() => {
-          goToSlide(currentIndex + 1);
-        }, 5000);
-      };
-
-      dotsContainer.innerHTML = "";
-      slides.forEach((_, index) => {
-        const dot = document.createElement("button");
-        dot.className = "dot";
-        dot.type = "button";
-        dot.setAttribute("aria-label", `Go to slide ${index + 1}`);
-        dot.addEventListener("click", () => {
-          goToSlide(index);
-          startAutoSlide();
-        });
-        dotsContainer.appendChild(dot);
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
       });
+    });
+  }
 
-      nextBtn.addEventListener("click", () => {
-        goToSlide(currentIndex + 1);
+  /* =========================
+     BACK TO TOP BUTTON
+  ========================= */
+
+  const backToTopBtn = document.getElementById("backToTop");
+
+  if (backToTopBtn) {
+    const toggleBackToTop = () => {
+      backToTopBtn.classList.toggle("show", window.scrollY > 300);
+    };
+
+    window.addEventListener("scroll", toggleBackToTop);
+    toggleBackToTop();
+
+    backToTopBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  }
+
+  /* =========================
+     PROJECT IMAGE SLIDER
+  ========================= */
+
+  const track = document.getElementById("sliderTrack");
+  const projectPrevBtn = document.getElementById("prevBtn");
+  const projectNextBtn = document.getElementById("nextBtn");
+  const dotsContainer = document.getElementById("dotsContainer");
+
+  if (track && projectPrevBtn && projectNextBtn && dotsContainer) {
+    const projectSlides = Array.from(
+      track.querySelectorAll(".slide")
+    );
+
+    let projectIndex = 0;
+    let autoSlideTimer;
+
+    const goToProjectSlide = (index) => {
+      projectIndex =
+        (index + projectSlides.length) % projectSlides.length;
+
+      track.style.transform =
+        `translateX(-${projectIndex * 100}%)`;
+
+      const dots = dotsContainer.querySelectorAll(".dot");
+
+      dots.forEach((dot, dotIndex) => {
+        dot.classList.toggle(
+          "active",
+          dotIndex === projectIndex
+        );
+      });
+    };
+
+    const startAutoSlide = () => {
+      clearInterval(autoSlideTimer);
+
+      autoSlideTimer = setInterval(() => {
+        goToProjectSlide(projectIndex + 1);
+      }, 5000);
+    };
+
+    dotsContainer.innerHTML = "";
+
+    projectSlides.forEach((slide, index) => {
+      const dot = document.createElement("button");
+
+      dot.className = "dot";
+      dot.type = "button";
+      dot.setAttribute(
+        "aria-label",
+        `Go to project ${index + 1}`
+      );
+
+      dot.addEventListener("click", () => {
+        goToProjectSlide(index);
         startAutoSlide();
       });
 
-      prevBtn.addEventListener("click", () => {
-        goToSlide(currentIndex - 1);
-        startAutoSlide();
-      });
+      dotsContainer.appendChild(dot);
+    });
 
-      goToSlide(0);
+    projectNextBtn.addEventListener("click", () => {
+      goToProjectSlide(projectIndex + 1);
       startAutoSlide();
     });
-  </script>
+
+    projectPrevBtn.addEventListener("click", () => {
+      goToProjectSlide(projectIndex - 1);
+      startAutoSlide();
+    });
+
+    goToProjectSlide(0);
+    startAutoSlide();
+  }
+
+  const videoContainer = document.getElementById("videoSlidesContainer");
+const videoPrevBtn = document.getElementById("videoPrevBtn");
+const videoNextBtn = document.getElementById("videoNextBtn");
+
+if (videoContainer && videoPrevBtn && videoNextBtn) {
+  const videoSlides = Array.from(
+    videoContainer.querySelectorAll(".video-slide")
+  );
+
+  let currentVideoIndex = 0;
+
+  function showVideo(index) {
+    if (!videoSlides.length) return;
+
+    currentVideoIndex =
+      (index + videoSlides.length) % videoSlides.length;
+
+    videoSlides.forEach((slide) => {
+      const video = slide.querySelector("video");
+
+      if (video) {
+        video.pause();
+      }
+    });
+
+    videoContainer.style.transform =
+      `translateX(-${currentVideoIndex * 100}%)`;
+  }
+
+  videoNextBtn.addEventListener("click", () => {
+    showVideo(currentVideoIndex + 1);
+  });
+
+  videoPrevBtn.addEventListener("click", () => {
+    showVideo(currentVideoIndex - 1);
+  });
+
+  showVideo(0);
+}
+</script>
 
 </body>
 </html>
